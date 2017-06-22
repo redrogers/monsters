@@ -5,7 +5,7 @@
     <input type="text" ng-model="monster.name">Enter monster's name</input>
     <input type="text" ng-model="monster.color">Enter monster's color</input>
     <input type="text" ng-model="monster.sound">Enter monster's sound</input>
-    <button ng-click="$setPristine(); $ctrl.createMonster(monster)">Create Monster</button>
+    <button ng-click="$setPristine(); $ctrl.addMonster(monster)">Create Monster</button>
   </form>
   <button ng-click="$ctrl.getMonsters()" id="all-monsters">Show all monsters</button>
   <div class="col-md-5">
