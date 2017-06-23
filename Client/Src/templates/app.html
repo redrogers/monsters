@@ -18,6 +18,7 @@
       <input type="text" ng-model="monster.color" placeholder="Enter monster's color"></input>
       <input type="text" ng-model="monster.sound" placeholder="Enter monster's sound"></input>
       <button ng-click="$setPristine(); $ctrl.updateMonster(monster)">Update Monster</button>
+      <button ng-click="$setPristine(); $ctrl.deleteMonster(monster)">DELETE Monster</button>
     </form>
   </div>
   <button ng-click="$ctrl.getMonsters()" id="all-monsters">Show all monsters</button>

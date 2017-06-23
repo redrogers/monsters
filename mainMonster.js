@@ -63,10 +63,7 @@ app.post('/monsters', function(req, res) {
 
 //update existing monster by id
 app.put('/monsters/:id', function(req, res) {
-  var id = req.params.id
-  console.log(id, 'IDIDIDID');
-  console.log(req.body, 'BODY')
-
+  var id = req.params.id;
   Monster.where({id: id}).fetch()
     .then(function(monster) {
       return monster.save({
@@ -89,10 +86,8 @@ app.put('/monsters/:id', function(req, res) {
 
 //delete existing monster by name
 app.delete('/monsters/:id', function(req, res) {
-  console.log(req.body, 'BODY');
-  var name = req.body.name;
-  console.log(name, 'NAME');
-  new Monster({name: name}).fetch().then(function(monster) {
+  var id = req.params.id;
+  new Monster({id: id}).fetch().then(function(monster) {
     monster.destroy()
     .then(function () {
       res.status(200).send();

@@ -40,6 +40,19 @@ angular.module('monsters', [])
       console.error(err);
     });
   };
+
+  this.deleteMonster = function (monster) {
+    var reqBody = angular.copy(monster);
+    var id = reqBody.id;
+    $http.delete('/monsters/' +id)
+    .then(function() {
+      alert('Monster deleted!');
+      app.getMonsters();
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+  };
 })
 
 .component('app', {
