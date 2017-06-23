@@ -1,12 +1,25 @@
 <div id="app container">
   <h3>Welcome to Monster World</h3>
-
-  <form>
-    <input type="text" ng-model="monster.name">Enter monster's name</input>
-    <input type="text" ng-model="monster.color">Enter monster's color</input>
-    <input type="text" ng-model="monster.sound">Enter monster's sound</input>
-    <button ng-click="$setPristine(); $ctrl.addMonster(monster)">Create Monster</button>
-  </form>
+  <div>
+    <h3> Create a New Monster </h3>
+    <form>
+      <input type="text" ng-model="monster.name" placeholder="Enter monster's name"></input>
+      <input type="text" ng-model="monster.color" placeholder="Enter monster's color"></input>
+      <input type="text" ng-model="monster.sound" placeholder="Enter monster's sound"></input>
+      <button ng-click="$setPristine(); $ctrl.addMonster(monster)">Create Monster</button>
+    </form>
+  </div>
+  <div>
+    <h3>Update a Monster</h3>
+    <h5>Enter Monster's ID and any updates</h5>
+    <form>
+      <input type="text" ng-model="monster.id" placeholder="Monster's ID number">
+      <input type="text" ng-model="monster.name" placeholder="Enter monster's name"></input>
+      <input type="text" ng-model="monster.color" placeholder="Enter monster's color"></input>
+      <input type="text" ng-model="monster.sound" placeholder="Enter monster's sound"></input>
+      <button ng-click="$setPristine(); $ctrl.updateMonster(monster)">Update Monster</button>
+    </form>
+  </div>
   <button ng-click="$ctrl.getMonsters()" id="all-monsters">Show all monsters</button>
   <div class="col-md-5">
     <all-monsters monsters="$ctrl.monsters" >All Monsters</all-monsters>

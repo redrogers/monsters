@@ -5,8 +5,8 @@ angular.module('monsters', [])
   var app = this;
 
   this.addMonster = function(monster) {
-    var resBody = angular.copy(monster);
-    $http.post('/monsters', resBody)
+    var reqBody = angular.copy(monster);
+    $http.post('/monsters', reqBody)
     .then(function(res) {
       console.log(res);
     })
@@ -23,6 +23,21 @@ angular.module('monsters', [])
     .then(function(res) {
       app.monsters = res.data;
       console.log(app.monsters, app);
+    });
+  };
+
+  this.updateMonster = function (monster) {
+    var reqBody = angular.copy(monster);
+    var id = reqBody.id;
+    $http.put('/monsters/' + id, reqBody)
+    .then(function(res) {
+      console.log(res);
+    })
+    .then(function () {
+      app.getMonsters();
+    })
+    .catch(function (err) {
+      console.error(err);
     });
   };
 })

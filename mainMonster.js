@@ -63,18 +63,24 @@ app.post('/monsters', function(req, res) {
 
 //update existing monster by id
 app.put('/monsters/:id', function(req, res) {
-  var id = req.params.id;
+  var id = req.params.id
   console.log(id, 'IDIDIDID');
+  console.log(req.body, 'BODY')
+
   Monster.where({id: id}).fetch()
     .then(function(monster) {
-      monster.save({
+      return monster.save({
+        // name: 'Homer Simpson',
+        // color: 'purple',
+        // sound: 'doh'
         name: req.body.name || monster.get('name'),
         sound: req.body.sound || monster.get('sound'),
-        color: req.body.sound || monster.get('color')
+        color: req.body.color || monster.get('color')
       });
     })
-    .then (function (id) {
-      res.status(200).send(monster.id);
+    .then (function (monster) {
+      console.log(monster);
+      res.status(200).send(monster);
     })
     .catch (function (err) {
       res.status(500).send();
